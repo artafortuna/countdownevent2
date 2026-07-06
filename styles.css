@@ -1,0 +1,48 @@
+/* Efek transisi halus antar tema */
+body, header, div, form, input, select, footer, button, p, h1, h2, h3, h4, span {
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Kustomisasi Scrollbar Elegan */
+::-webkit-scrollbar {
+    width: 6px; 
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #14b8a6, #f59e0b);
+    border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0f766e, #b45309);
+}
+
+input:focus, select:focus, button:focus {
+    outline: none;
+}
+
+/* Animasi Putar Default Jam */
+.animate-spin-slow {
+    animation: spin 8s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Efek Kilau / Shimmering Kiri ke Kanan Mewah */
+@keyframes shimmer {
+    from { background-position: 250% center; }
+    to { background-position: -250% center; }
+}
+.animate-shimmer {
+    animation: shimmer 5s linear infinite;
+}
+
+/* Efek Mengambang untuk Logo CSS */
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.05); }
+}
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
