@@ -90,7 +90,63 @@ function searchEvents(val) {
 }
 
 
-// --- LOGIKA APLIKASI INTI (TIDAK DIUBAH FUNGSI APAPUN) ---
+// --- MODAL POPUP CUSTOM (ALERT & CONFIRM) - FIX CENTERED ---
+const customModal = document.getElementById('custom-modal');
+const modalIcon = document.getElementById('modal-icon');
+const modalTitle = document.getElementById('modal-title');
+const modalMessage = document.getElementById('modal-message');
+const modalActions = document.getElementById('modal-actions');
+
+function openModal(type, title, message, onConfirm) {
+    if (type === 'alert') {
+        modalIcon.className = "w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800";
+        modalIcon.innerHTML = '<i class="fa-solid fa-bell text-2xl"></i>';
+        modalActions.innerHTML = `
+            <button onclick="closeModal()" class="w-full bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white font-black py-3.5 rounded-2xl transition-all shadow-lg shadow-teal-500/40 active:scale-[0.98] text-sm border border-teal-400/50">
+                Tutup Peringatan
+            </button>
+        `;
+    } else if (type === 'confirm') {
+        modalIcon.className = "w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800";
+        modalIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation text-2xl"></i>';
+        modalActions.innerHTML = `
+            <button onclick="closeModal()" class="flex-1 bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-black py-3.5 rounded-2xl transition-all shadow-sm text-sm">
+                Batal
+            </button>
+            <button id="btn-confirm-action" class="flex-1 bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white font-black py-3.5 rounded-2xl transition-all shadow-lg shadow-rose-500/40 active:scale-[0.98] text-sm border border-rose-400/50">
+                Ya, Hapus
+            </button>
+        `;
+        document.getElementById('btn-confirm-action').onclick = () => {
+            if(onConfirm) onConfirm();
+            closeModal();
+        };
+    }
+
+    modalTitle.innerText = title;
+    modalMessage.innerHTML = message.replace('\n\n', '<br><br>');
+
+    // FIX: Tambahkan class 'flex' untuk memastikan items ter-center dengan benar
+    customModal.classList.remove('hidden');
+    customModal.classList.add('flex');
+    
+    void customModal.offsetWidth; // trigger reflow untuk animasi
+    
+    customModal.classList.remove('opacity-0');
+    customModal.firstElementChild.classList.remove('scale-95');
+}
+
+function closeModal() {
+    customModal.classList.add('opacity-0');
+    customModal.firstElementChild.classList.add('scale-95');
+    setTimeout(() => {
+        customModal.classList.add('hidden');
+        customModal.classList.remove('flex');
+    }, 300);
+}
+
+
+// --- LOGIKA APLIKASI INTI ---
 
 function ulangTahunAcara(id) {
     const idx = events.findIndex(e => e.id === id);
@@ -128,6 +184,7 @@ function initDatabase() {
 
     request.onerror = function(e) {
         console.error("IndexedDB Error:", e);
+        openModal('alert', 'Database Error', 'Gagal memuat penyimpanan IndexedDB.');
     };
 }
 
@@ -186,10 +243,13 @@ document.getElementById('event-date').value = nowIso;
 
 setInterval(() => {
     const d = new Date();
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const dayName = days[d.getDay()];
     const dd = String(d.getDate()).padStart(2, '0');
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const yyyy = d.getFullYear();
-    document.getElementById('live-date').innerText = `${dd}/${mm}/${yyyy}`;
+    
+    document.getElementById('live-date').innerText = `${dayName}, ${dd}/${mm}/${yyyy}`;
     document.getElementById('live-clock').innerText = d.toLocaleTimeString('id-ID');
 }, 1000);
 
@@ -263,10 +323,10 @@ function batalEdit() {
 }
 
 function deleteEvent(id) {
-    if (confirm("Hapus acara mewah ini dari riwayat?")) {
+    openModal('confirm', 'Hapus Acara', 'Yakin ingin menghapus acara mewah ini dari riwayat?', () => {
         events = events.filter(evt => evt.id !== id);
         simpanKeDB(() => renderEvents());
-    }
+    });
 }
 
 function triggerNotification(eventName) {
@@ -299,7 +359,7 @@ function triggerNotification(eventName) {
             icon: "https://cdn-icons-png.flaticon.com/512/2693/2693507.png"
         });
     } else {
-        alert(`⏰ WAKTUNYA TIBA!\n\nAcara "${eventName}" sudah dimulai saat ini!`);
+        openModal('alert', 'Waktunya Tiba!', `Acara <b>"${eventName}"</b> sudah dimulai saat ini!`);
     }
 }
 
@@ -337,7 +397,6 @@ function renderEvents() {
 
     filtered.forEach(evt => {
         const card = document.createElement('div');
-        // Kategori ditampilkan full di JS (tidak memakai substring lagi)
         card.className = `p-3.5 sm:p-5 rounded-3xl bg-gradient-to-br ${evt.theme} text-white shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[160px] border border-white/30 backdrop-blur-lg group hover:scale-[1.02] transition-transform`;
         card.setAttribute('data-target', evt.targetDate);
         card.setAttribute('data-id', evt.id);
