@@ -273,6 +273,19 @@ const nowIso = new Date().toISOString().substring(0, 16);
 document.getElementById('event-date').min = nowIso;
 document.getElementById('event-date').value = nowIso;
 
+// --- FITUR BARU: JAM OTOMATIS 00:00 KHUSUS ULANG TAHUN ---
+function autoSetMidnight() {
+    const category = document.getElementById('event-category').value;
+    const dateInput = document.getElementById('event-date');
+    if (category.includes('Ulang Tahun') && dateInput.value) {
+        const datePart = dateInput.value.split('T')[0];
+        dateInput.value = `${datePart}T00:00`;
+    }
+}
+document.getElementById('event-category').addEventListener('change', autoSetMidnight);
+document.getElementById('event-date').addEventListener('input', autoSetMidnight);
+autoSetMidnight(); // Jalankan pertama kali saat load
+
 // Update Live Date dengan format: hari, dd mmm yyyy
 setInterval(() => {
     const d = new Date();
@@ -326,6 +339,7 @@ function addEvent(e) {
     simpanKeDB(() => {
         document.getElementById('event-form').reset();
         document.getElementById('event-date').value = nowIso;
+        autoSetMidnight();
         bukaHalamanLinimasa();
     });
 }
@@ -351,6 +365,8 @@ function siapkanEdit(id) {
 function batalEdit() {
     editEventId = null;
     document.getElementById('event-form').reset();
+    document.getElementById('event-date').value = nowIso;
+    autoSetMidnight();
     document.getElementById('judul-form').innerHTML = 'Buat Acara Baru';
     document.getElementById('teks-submit').innerText = "Simpan Acara";
     document.getElementById('icon-submit').className = "fa-solid fa-anchor";
@@ -399,7 +415,7 @@ function triggerNotification(eventName) {
     }
 }
 
-// Komponen pembuatan UI Kartu (Padding, Margin, dan Spasi Diperkecil)
+// Komponen pembuatan UI Kartu 
 function generateEventCardHTML(evt) {
     const isBirthday = evt.category.includes('Ulang Tahun');
     return `
