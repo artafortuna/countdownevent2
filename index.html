@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Arta Fortuna - Event Countdown (Beach Edition)</title>
+    <title>Event Countdown (Beach Edition)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
@@ -28,117 +28,117 @@
 </head>
 <body class="bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-fixed font-sans min-h-screen selection:bg-pasir-500 selection:text-white flex flex-col items-center">
     
-    <!-- Latar Belakang Overlay Diperjelas (Transparansi & Blur dikurangi) -->
+    <!-- Latar Belakang Overlay Diperjelas -->
     <div class="fixed inset-0 bg-white/20 dark:bg-[#070b14]/50 backdrop-blur-[2px] z-0 pointer-events-none"></div>
 
     <div id="app-container" class="w-full max-w-4xl z-10 relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300">
         
-        <!-- Header Ukuran Diperkecil -->
-        <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border-b border-cyan-400 dark:border-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.5)] px-4 h-16 flex justify-between items-center sticky top-0 z-50 transition-colors duration-300 w-full rounded-b-3xl mb-3">
+        <!-- Header -->
+        <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border-b border-cyan-400 dark:border-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.5)] px-5 h-20 flex justify-between items-center sticky top-0 z-50 transition-colors duration-300 w-full rounded-b-3xl mb-4">
             <div class="w-full flex justify-between items-center relative">
                 
-                <div id="header-brand" class="flex items-center gap-2.5 transition-all duration-300 w-full">
-                    <div class="w-9 h-9 bg-gradient-to-br from-pantai-600 to-pantai-400 rounded-full flex items-center justify-center border border-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.8)] relative overflow-hidden">
-                        <i class="fa-solid fa-umbrella-beach text-white text-sm animate-float"></i>
+                <div id="header-brand" class="flex items-center gap-3 transition-all duration-300 w-full">
+                    <div class="w-10 h-10 bg-gradient-to-br from-pantai-600 to-pantai-400 rounded-full flex items-center justify-center border border-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.8)] relative overflow-hidden">
+                        <i class="fa-solid fa-umbrella-beach text-white text-base animate-float"></i>
                     </div>
-                    <h2 class="text-lg sm:text-xl font-mewah font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 drop-shadow-md">
-                        ARTA FORTUNA
+                    <h2 class="text-xl sm:text-2xl font-mewah font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 drop-shadow-md">
+                        EVENT COUNTDOWN
                     </h2>
                 </div>
 
-                <div id="search-bar" class="absolute inset-y-0 left-0 right-12 flex items-center opacity-0 pointer-events-none transition-all duration-300 translate-x-10 z-10 w-full">
+                <div id="search-bar" class="absolute inset-y-0 left-0 right-14 flex items-center opacity-0 pointer-events-none transition-all duration-300 translate-x-10 z-10 w-full">
                     <div class="relative w-full rounded-full border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-600 dark:text-cyan-300 text-sm"></i>
-                        <input type="text" id="searchInput" onkeyup="searchEvents(this.value)" placeholder="Cari acara pantai..." class="w-full bg-white/90 dark:bg-slate-900/90 text-sm text-slate-800 dark:text-white rounded-full py-2 pl-10 pr-4 outline-none focus:ring-4 focus:ring-cyan-500/40 transition-all font-semibold">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-cyan-600 dark:text-cyan-300 text-base"></i>
+                        <input type="text" id="searchInput" onkeyup="searchEvents(this.value)" placeholder="Cari acara pantai..." class="w-full bg-white/90 dark:bg-slate-900/90 text-base text-slate-800 dark:text-white rounded-full py-2.5 pl-12 pr-4 outline-none focus:ring-4 focus:ring-cyan-500/40 transition-all font-semibold">
                     </div>
                 </div>
 
-                <div class="flex items-center gap-1.5 relative z-20">
-                    <button id="search-btn" onclick="openSearch()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] hover:scale-105 transition-all active:scale-95">
-                        <i class="fa-solid fa-magnifying-glass text-[14px] text-cyan-600 dark:text-cyan-400"></i>
+                <div class="flex items-center gap-2 relative z-20">
+                    <button id="search-btn" onclick="openSearch()" class="w-10 h-10 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] hover:scale-105 transition-all active:scale-95">
+                        <i class="fa-solid fa-magnifying-glass text-[15px] text-cyan-600 dark:text-cyan-400"></i>
                     </button>
-                    <button id="theme-btn" onclick="handleThemeBtnClick()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-pasir-400 shadow-[0_0_10px_rgba(251,191,36,0.5)] hover:scale-105 transition-all active:scale-95">
-                        <i id="theme-icon" class="fa-solid fa-moon text-[15px] text-pasir-600 dark:text-pasir-400"></i>
+                    <button id="theme-btn" onclick="handleThemeBtnClick()" class="w-10 h-10 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-pasir-400 shadow-[0_0_10px_rgba(251,191,36,0.5)] hover:scale-105 transition-all active:scale-95">
+                        <i id="theme-icon" class="fa-solid fa-moon text-[16px] text-pasir-600 dark:text-pasir-400"></i>
                     </button>
                 </div>
             </div>
         </header>
 
-        <main id="main-content" class="w-full p-3 flex-1 flex flex-col gap-4 relative pb-28">
+        <main id="main-content" class="w-full p-4 flex-1 flex flex-col gap-5 relative pb-32">
             
             <!-- Marquee Info -->
-            <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-2.5 flex items-center border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.4)] overflow-hidden relative">
-                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-pasir-400 to-orange-500 flex items-center justify-center shrink-0 border border-pasir-300 shadow-[0_0_10px_rgba(251,191,36,0.8)] z-10 mr-2.5">
-                    <i class="fa-solid fa-water text-white text-xs"></i>
+            <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-3 flex items-center border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.4)] overflow-hidden relative">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pasir-400 to-orange-500 flex items-center justify-center shrink-0 border border-pasir-300 shadow-[0_0_10px_rgba(251,191,36,0.8)] z-10 mr-3">
+                    <i class="fa-solid fa-water text-white text-sm"></i>
                 </div>
-                <div class="marquee-text w-full text-xs sm:text-sm font-extrabold tracking-wide whitespace-nowrap text-cyan-900 dark:text-cyan-300 drop-shadow-sm">
+                <div class="marquee-text w-full text-sm sm:text-base font-extrabold tracking-wide whitespace-nowrap text-cyan-900 dark:text-cyan-300 drop-shadow-sm">
                     <marquee scrollamount="5">🌴 Nikmati suasana pantai! Atur waktu dan target acaramu agar tidak terlewatkan dengan santai namun presisi. 🌊</marquee>
                 </div>
             </div>
 
             <!-- HALAMAN 1: BERANDA -->
-            <div id="halaman-utama" class="space-y-4 block">
-                <!-- Kartu Selamat Datang Diperkecil -->
-                <div class="bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl rounded-[1.5rem] p-4 sm:p-5 shadow-[0_0_15px_rgba(34,211,238,0.4)] border border-cyan-400 relative overflow-hidden group">
+            <div id="halaman-utama" class="space-y-5 block">
+                <!-- Kartu Selamat Datang -->
+                <div class="bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl rounded-[1.5rem] p-5 sm:p-6 shadow-[0_0_15px_rgba(34,211,238,0.4)] border border-cyan-400 relative overflow-hidden group">
                     <div class="absolute -top-20 -right-20 w-56 h-56 bg-gradient-to-br from-pasir-400/40 to-orange-500/40 rounded-full blur-3xl group-hover:bg-pasir-400/50 transition-all duration-700"></div>
                     
                     <div class="relative z-10">
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="bg-white/50 dark:bg-black/50 border border-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.4)] backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 w-fit">
-                                <i class="fa-solid fa-star text-pasir-500 text-[9px]"></i>
-                                <span class="text-cyan-800 dark:text-cyan-200 text-[9px] font-black uppercase tracking-widest">Premium Surfer</span>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="bg-white/50 dark:bg-black/50 border border-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.4)] backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1.5 w-fit">
+                                <i class="fa-solid fa-star text-pasir-500 text-[10px]"></i>
+                                <span class="text-cyan-800 dark:text-cyan-200 text-[10px] font-black uppercase tracking-widest">Premium Surfer</span>
                             </div>
                         </div>
                         
-                        <h2 class="text-xl sm:text-2xl font-mewah font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 drop-shadow-md">Aloha, Mas Sigit!</h2>
+                        <h2 class="text-2xl sm:text-3xl font-mewah font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 drop-shadow-md">Aloha, Mas Sigit!</h2>
                         
-                        <div class="mt-4 grid grid-cols-2 gap-2 w-full">
-                            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-xl px-2 py-2.5 border border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.3)] w-full justify-center text-slate-800 dark:text-slate-200">
+                        <div class="mt-5 grid grid-cols-2 gap-3 w-full">
+                            <div class="flex items-center gap-2 text-xs sm:text-sm font-bold bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-xl px-3 py-3 border border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.3)] w-full justify-center text-slate-800 dark:text-slate-200">
                                 <i class="fa-regular fa-calendar-days text-cyan-500"></i> <span id="live-date" class="tracking-wide">--/--/----</span>
                             </div>
-                            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-black bg-gradient-to-r from-pasir-400 to-orange-500 rounded-xl px-2 py-2.5 border border-pasir-300 shadow-[0_0_10px_rgba(251,191,36,0.5)] w-full justify-center text-white drop-shadow-md">
+                            <div class="flex items-center gap-2 text-xs sm:text-sm font-black bg-gradient-to-r from-pasir-400 to-orange-500 rounded-xl px-3 py-3 border border-pasir-300 shadow-[0_0_10px_rgba(251,191,36,0.5)] w-full justify-center text-white drop-shadow-md">
                                 <i class="fa-solid fa-clock-rotate-left animate-spin-slow"></i> <span id="live-clock" class="tracking-wider">--:--:--</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2 Acara Terdekat (Grid 2 Kolom Konsisten) -->
-                <div class="mt-4">
-                    <h3 class="text-base font-mewah font-black text-slate-800 dark:text-white mb-3 flex items-center gap-2 drop-shadow-md px-1">
+                <!-- 2 Acara Terdekat -->
+                <div class="mt-5">
+                    <h3 class="text-lg font-mewah font-black text-slate-800 dark:text-white mb-4 flex items-center gap-2 drop-shadow-md px-1">
                         <i class="fa-solid fa-fire text-pasir-500 drop-shadow-[0_0_5px_rgba(251,191,36,0.8)]"></i> 
                         <span class="bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent">Acara Terdekat</span>
                     </h3>
-                    <div id="nearest-events-grid" class="grid grid-cols-2 gap-2 sm:gap-4">
+                    <div id="nearest-events-grid" class="grid grid-cols-2 gap-3 sm:gap-4">
                         <!-- Kartu Terdekat Akan Di-Render Lewat JS -->
                     </div>
-                    <div id="nearest-empty-state" class="bg-white/80 dark:bg-slate-900/80 border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.4)] p-4 rounded-[1.5rem] text-center text-slate-600 dark:text-slate-300 backdrop-blur-md text-xs font-bold">
+                    <div id="nearest-empty-state" class="bg-white/80 dark:bg-slate-900/80 border border-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.4)] p-5 rounded-[1.5rem] text-center text-slate-600 dark:text-slate-300 backdrop-blur-md text-sm font-bold">
                         Belum ada acara mendatang. Tambahkan acara baru!
                     </div>
                 </div>
             </div>
 
             <!-- HALAMAN 2: INPUT DATA -->
-            <div id="halaman-input" class="space-y-4 hidden">
-                <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border border-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] p-4 sm:p-5 rounded-[1.5rem] relative overflow-hidden">
+            <div id="halaman-input" class="space-y-5 hidden">
+                <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border border-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)] p-5 sm:p-6 rounded-[1.5rem] relative overflow-hidden">
                     <div class="absolute -right-10 -top-10 w-32 h-32 bg-cyan-500/20 rounded-full blur-3xl"></div>
                     
-                    <h3 class="text-base font-mewah font-black text-slate-800 dark:text-white mb-4 flex items-center gap-2.5 relative z-10 drop-shadow-md">
-                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-pantai-500 to-blue-600 flex items-center justify-center text-white border border-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.6)] rotate-3">
-                            <i class="fa-solid fa-calendar-plus text-xs"></i>
+                    <h3 class="text-lg font-mewah font-black text-slate-800 dark:text-white mb-5 flex items-center gap-3 relative z-10 drop-shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pantai-500 to-blue-600 flex items-center justify-center text-white border border-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.6)] rotate-3">
+                            <i class="fa-solid fa-calendar-plus text-sm"></i>
                         </div>
                         <span id="judul-form" class="bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent">Buat Acara Baru</span>
                     </h3>
                     
-                    <form id="event-form" onsubmit="addEvent(event)" class="space-y-3 relative z-10 w-full">
-                        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-3 w-full">
-                            <div class="space-y-1 w-full">
-                                <label class="block text-[10px] font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Nama Acara</label>
-                                <input type="text" id="event-name" required placeholder="Contoh: Pesta Pantai" class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-3 py-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-xs font-bold text-slate-800 dark:text-white transition-all shadow-sm">
+                    <form id="event-form" onsubmit="addEvent(event)" class="space-y-4 relative z-10 w-full">
+                        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-4 w-full">
+                            <div class="space-y-1.5 w-full">
+                                <label class="block text-xs font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Nama Acara</label>
+                                <input type="text" id="event-name" required placeholder="Contoh: Pesta Pantai" class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-sm font-bold text-slate-800 dark:text-white transition-all shadow-sm">
                             </div>
-                            <div class="space-y-1 w-full">
-                                <label class="block text-[10px] font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Kategori</label>
-                                <select id="event-category" class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-3 py-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-xs font-bold text-slate-800 dark:text-white transition-all shadow-sm">
+                            <div class="space-y-1.5 w-full">
+                                <label class="block text-xs font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Kategori</label>
+                                <select id="event-category" class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-sm font-bold text-slate-800 dark:text-white transition-all shadow-sm">
                                     <option value="🎂 Ulang Tahun">🎂 Ulang Tahun</option>
                                     <option value="✈️ Liburan Pantai">✈️ Liburan Pantai</option>
                                     <option value="💼 Pekerjaan">💼 Pekerjaan</option>
@@ -148,14 +148,14 @@
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-3 w-full">
-                            <div class="space-y-1 w-full">
-                                <label class="block text-[10px] font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Waktu Target</label>
-                                <input type="datetime-local" id="event-date" required class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-3 py-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-xs font-black text-slate-800 dark:text-white transition-all shadow-sm">
+                        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-4 w-full">
+                            <div class="space-y-1.5 w-full">
+                                <label class="block text-xs font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Waktu Target</label>
+                                <input type="datetime-local" id="event-date" required class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-sm font-black text-slate-800 dark:text-white transition-all shadow-sm">
                             </div>
-                            <div class="space-y-1 w-full">
-                                <label class="block text-[10px] font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Tema Warna (20 Opsi)</label>
-                                <select id="event-theme" required class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-3 py-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-xs font-bold text-slate-800 dark:text-white transition-all shadow-sm">
+                            <div class="space-y-1.5 w-full">
+                                <label class="block text-xs font-black text-cyan-700 dark:text-cyan-300 uppercase tracking-widest ml-1 drop-shadow-sm">Tema Warna (20 Opsi)</label>
+                                <select id="event-theme" required class="w-full bg-white/60 dark:bg-slate-800/60 border border-cyan-400 px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-500/40 text-sm font-bold text-slate-800 dark:text-white transition-all shadow-sm">
                                     <option value="from-cyan-400 to-blue-500">🌊 Ocean Blue</option>
                                     <option value="from-pasir-400 to-orange-500">🌅 Sunset Orange</option>
                                     <option value="from-teal-400 to-emerald-500">🌴 Palm Green</option>
@@ -180,11 +180,11 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-2 pt-2 w-full">
-                            <button type="button" id="btn-batal-edit" onclick="batalEdit()" class="hidden w-full sm:flex-1 bg-white dark:bg-slate-800 border border-rose-400 text-rose-600 dark:text-rose-400 font-black py-2.5 rounded-xl transition-all shadow-sm text-xs">
+                        <div class="flex flex-col sm:flex-row gap-3 pt-3 w-full">
+                            <button type="button" id="btn-batal-edit" onclick="batalEdit()" class="hidden w-full sm:flex-1 bg-white dark:bg-slate-800 border border-rose-400 text-rose-600 dark:text-rose-400 font-black py-3 rounded-xl transition-all shadow-sm text-sm">
                                 Batalkan
                             </button>
-                            <button type="submit" id="btn-submit" class="w-full sm:flex-[2] bg-gradient-to-r from-pantai-500 to-blue-600 text-white font-black py-2.5 rounded-xl transition-all border border-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.5)] active:scale-[0.98] text-xs flex justify-center items-center gap-2">
+                            <button type="submit" id="btn-submit" class="w-full sm:flex-[2] bg-gradient-to-r from-pantai-500 to-blue-600 text-white font-black py-3 rounded-xl transition-all border border-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.5)] active:scale-[0.98] text-sm flex justify-center items-center gap-2">
                                 <i class="fa-solid fa-anchor" id="icon-submit"></i> <span id="teks-submit">Simpan Acara</span>
                             </button>
                         </div>
@@ -193,31 +193,31 @@
             </div>
 
             <!-- HALAMAN 3: LINIMASA -->
-            <div id="halaman-linimasa" class="space-y-4 hidden">
+            <div id="halaman-linimasa" class="space-y-5 hidden">
                 
                 <div class="flex items-center justify-between px-1">
-                    <div class="text-base font-mewah font-black text-slate-800 dark:text-white flex items-center gap-2 drop-shadow-md">
+                    <div class="text-lg font-mewah font-black text-slate-800 dark:text-white flex items-center gap-2 drop-shadow-md">
                         <i class="fa-solid fa-layer-group text-cyan-700 dark:text-cyan-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.8)]"></i> 
                         <span class="bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-cyan-300 dark:to-blue-300 bg-clip-text text-transparent">Semua Acara</span> (<span id="total-events" class="text-pasir-500">0</span>)
                     </div>
                 </div>
 
-                <div class="bg-white/80 dark:bg-slate-900/80 p-1 rounded-xl flex gap-1 border border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)] backdrop-blur-md">
-                    <button onclick="setFilter('all')" id="btn-filter-all" class="flex-1 py-1.5 rounded-lg text-[10px] sm:text-xs font-black bg-gradient-to-r from-pantai-500 to-blue-600 text-white border border-cyan-300 shadow-sm transition-all">Semua</button>
-                    <button onclick="setFilter('active')" id="btn-filter-active" class="flex-1 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-cyan-100 dark:hover:bg-slate-800 transition-all">Berjalan</button>
-                    <button onclick="setFilter('passed')" id="btn-filter-passed" class="flex-1 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-cyan-100 dark:hover:bg-slate-800 transition-all">Selesai</button>
+                <div class="bg-white/80 dark:bg-slate-900/80 p-1.5 rounded-xl flex gap-1 border border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.4)] backdrop-blur-md">
+                    <button onclick="setFilter('all')" id="btn-filter-all" class="flex-1 py-2 rounded-lg text-xs sm:text-sm font-black bg-gradient-to-r from-pantai-500 to-blue-600 text-white border border-cyan-300 shadow-sm transition-all">Semua</button>
+                    <button onclick="setFilter('active')" id="btn-filter-active" class="flex-1 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 hover:bg-cyan-100 dark:hover:bg-slate-800 transition-all">Berjalan</button>
+                    <button onclick="setFilter('passed')" id="btn-filter-passed" class="flex-1 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 hover:bg-cyan-100 dark:hover:bg-slate-800 transition-all">Selesai</button>
                 </div>
 
                 <!-- Grid 2 Kolom Konsisten -->
-                <div id="events-grid" class="grid grid-cols-2 gap-2 sm:gap-4">
+                <div id="events-grid" class="grid grid-cols-2 gap-3 sm:gap-4">
                     <!-- Kartu-kartu acara di-render di sini -->
                 </div>
 
                 <div id="empty-state" class="bg-white/70 dark:bg-slate-900/70 border border-cyan-400 p-8 rounded-[1.5rem] text-center text-slate-700 dark:text-slate-300 hidden backdrop-blur-md shadow-[0_0_10px_rgba(34,211,238,0.3)]">
-                    <div class="w-12 h-12 bg-white/80 dark:bg-slate-800/80 rounded-full flex items-center justify-center mx-auto mb-3 border border-cyan-300 shadow-sm">
-                        <i class="fa-solid fa-box-open text-xl text-cyan-600 dark:text-cyan-400"></i>
+                    <div class="w-14 h-14 bg-white/80 dark:bg-slate-800/80 rounded-full flex items-center justify-center mx-auto mb-4 border border-cyan-300 shadow-sm">
+                        <i class="fa-solid fa-box-open text-2xl text-cyan-600 dark:text-cyan-400"></i>
                     </div>
-                    <p class="text-xs font-bold">Belum ada acara yang sesuai.</p>
+                    <p class="text-sm font-bold">Belum ada acara yang sesuai.</p>
                 </div>
             </div>
 
@@ -225,45 +225,45 @@
 
         <!-- MODAL CUSTOM TEMA PANTAI -->
         <div id="custom-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
-            <div class="bg-white/95 dark:bg-slate-900/95 border border-cyan-400 p-5 rounded-[1.5rem] shadow-[0_0_20px_rgba(34,211,238,0.5)] max-w-sm w-full transform scale-95 transition-transform duration-300 flex flex-col items-center text-center">
+            <div class="bg-white/95 dark:bg-slate-900/95 border border-cyan-400 p-6 rounded-[1.5rem] shadow-[0_0_20px_rgba(34,211,238,0.5)] max-w-sm w-full transform scale-95 transition-transform duration-300 flex flex-col items-center text-center">
                 <div id="modal-icon"></div>
-                <h3 id="modal-title" class="text-lg font-mewah font-black text-slate-800 dark:text-white mb-2 drop-shadow-md"></h3>
-                <p id="modal-message" class="text-xs font-bold text-slate-600 dark:text-slate-300 mb-5"></p>
-                <div id="modal-actions" class="flex gap-2 w-full"></div>
+                <h3 id="modal-title" class="text-xl font-mewah font-black text-slate-800 dark:text-white mb-2 drop-shadow-md"></h3>
+                <p id="modal-message" class="text-sm font-bold text-slate-600 dark:text-slate-300 mb-6"></p>
+                <div id="modal-actions" class="flex gap-3 w-full"></div>
             </div>
         </div>
 
         <!-- NAVIGASI MELAYANG + FOOTER HAK CIPTA DI BAWAHNYA -->
-        <div class="fixed bottom-2 left-0 right-0 z-50 pointer-events-none flex flex-col items-center justify-end pb-1 w-full px-4">
+        <div class="fixed bottom-3 left-0 right-0 z-50 pointer-events-none flex flex-col items-center justify-end pb-1 w-full px-4">
             <!-- Box Navigasi -->
-            <nav class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-2xl border border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)] pointer-events-auto rounded-3xl w-full max-w-md mb-2">
-                <div class="flex justify-around items-center px-2 py-1.5 relative">
+            <nav class="bg-white/90 dark:bg-slate-900/95 backdrop-blur-2xl border border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)] pointer-events-auto rounded-3xl w-full max-w-md mb-2.5">
+                <div class="flex justify-around items-center px-2 py-2 relative">
                     <!-- Nav Beranda -->
-                    <button onclick="bukaHalamanUtama()" id="nav-home" class="text-cyan-600 dark:text-cyan-400 flex flex-col items-center gap-0.5 transition-all px-4 py-1.5 scale-105 drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] group">
-                        <i class="fa-solid fa-house-chimney-window text-[18px] group-hover:-translate-y-1 transition-transform"></i>
-                        <span class="text-[9px] font-black tracking-widest uppercase mt-0.5">Beranda</span>
+                    <button onclick="bukaHalamanUtama()" id="nav-home" class="text-cyan-600 dark:text-cyan-400 flex flex-col items-center gap-1 transition-all px-4 py-2 scale-105 drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] group">
+                        <i class="fa-solid fa-house-chimney-window text-[20px] group-hover:-translate-y-1 transition-transform"></i>
+                        <span class="text-[10px] font-black tracking-widest uppercase mt-0.5">Beranda</span>
                     </button>
                     
                     <!-- Nav Tambah (Tengah/Menonjol) -->
-                    <button onclick="bukaHalamanInput()" id="nav-input" class="text-slate-500 dark:text-slate-400 flex flex-col items-center gap-0.5 transition-all px-4 py-1.5 relative group -mt-5">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pasir-400 to-orange-500 border-4 border-white dark:border-slate-900 shadow-[0_0_10px_rgba(251,191,36,0.6)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-plus text-[20px]"></i>
+                    <button onclick="bukaHalamanInput()" id="nav-input" class="text-slate-500 dark:text-slate-400 flex flex-col items-center gap-1 transition-all px-4 py-2 relative group -mt-6">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pasir-400 to-orange-500 border-4 border-white dark:border-slate-900 shadow-[0_0_10px_rgba(251,191,36,0.6)] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-plus text-[22px]"></i>
                         </div>
-                        <span class="text-[9px] font-black tracking-widest uppercase mt-1">Tambah</span>
+                        <span class="text-[10px] font-black tracking-widest uppercase mt-1">Tambah</span>
                     </button>
 
                     <!-- Nav Linimasa -->
-                    <button onclick="bukaHalamanLinimasa()" id="nav-timeline" class="text-slate-500 dark:text-slate-400 flex flex-col items-center gap-0.5 transition-all px-4 py-1.5 relative group">
-                        <i class="fa-solid fa-map text-[18px] group-hover:-translate-y-1 transition-transform"></i>
-                        <span class="text-[9px] font-black tracking-widest uppercase mt-0.5">Linimasa</span>
-                        <span class="absolute top-0.5 right-2 bg-gradient-to-r from-pasir-500 to-orange-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center border border-pasir-300 shadow-sm" id="total-events-nav">0</span>
+                    <button onclick="bukaHalamanLinimasa()" id="nav-timeline" class="text-slate-500 dark:text-slate-400 flex flex-col items-center gap-1 transition-all px-4 py-2 relative group">
+                        <i class="fa-solid fa-map text-[20px] group-hover:-translate-y-1 transition-transform"></i>
+                        <span class="text-[10px] font-black tracking-widest uppercase mt-0.5">Linimasa</span>
+                        <span class="absolute top-1 right-2 bg-gradient-to-r from-pasir-500 to-orange-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full min-w-[20px] text-center border border-pasir-300 shadow-sm" id="total-events-nav">0</span>
                     </button>
                 </div>
             </nav>
             
             <!-- Footer Hak Cipta -->
-            <div class="pointer-events-auto text-center bg-black/40 dark:bg-black/60 backdrop-blur-md px-4 py-1 rounded-full border border-white/20 dark:border-white/10 shadow-sm">
-                <p class="text-[8px] sm:text-[9px] font-bold text-white/90 uppercase tracking-widest drop-shadow-md">
+            <div class="pointer-events-auto text-center bg-black/40 dark:bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 dark:border-white/10 shadow-sm">
+                <p class="text-[9px] sm:text-[10px] font-bold text-white/90 uppercase tracking-widest drop-shadow-md">
                     &copy; 2026 Event Countdown App by Arta Fortuna. All Rights Reserved.
                 </p>
             </div>
