@@ -1,19 +1,21 @@
-/* Efek transisi halus antar tema */
+/* Efek transisi halus antar tema (Beach Edition) */
 body, header, div, form, input, select, footer, button, p, h1, h2, h3, h4, span {
     transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Kustomisasi Scrollbar Elegan */
+/* Kustomisasi Scrollbar Tema Pantai & Menyala */
 ::-webkit-scrollbar {
     width: 6px; 
     background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #14b8a6, #f59e0b);
+    background: linear-gradient(to bottom, #38bdf8, #fbbf24);
     border-radius: 10px;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
 }
 .dark ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #0f766e, #b45309);
+    background: linear-gradient(to bottom, #0284c7, #d97706);
+    box-shadow: 0 0 10px rgba(2, 132, 199, 0.9);
 }
 
 input:focus, select:focus, button:focus {
@@ -29,20 +31,36 @@ input:focus, select:focus, button:focus {
     to { transform: rotate(360deg); }
 }
 
-/* Efek Kilau / Shimmering Kiri ke Kanan Mewah */
+/* Efek Kilau / Shimmering Pantai (Biru ke Emas) */
 @keyframes shimmer {
     from { background-position: 250% center; }
     to { background-position: -250% center; }
 }
 .animate-shimmer {
     animation: shimmer 5s linear infinite;
+    background-size: 200% auto;
 }
 
-/* Efek Mengambang untuk Logo CSS */
+/* Efek Mengambang (Seperti Pelampung di Air) */
 @keyframes float {
     0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-3px) scale(1.05); }
+    50% { transform: translateY(-4px) scale(1.05); }
 }
 .animate-float {
     animation: float 3s ease-in-out infinite;
+}
+
+/* Efek Garis Menyala Tambahan Saat Elemen Aktif / Fokus */
+input, select, button {
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+input:focus, select:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6), inset 0 0 10px rgba(56, 189, 248, 0.2) !important;
+}
+
+.dark input:focus, .dark select:focus {
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.7), inset 0 0 12px rgba(14, 165, 233, 0.3) !important;
 }
